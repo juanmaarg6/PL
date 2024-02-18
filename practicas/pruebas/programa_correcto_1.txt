@@ -1,0 +1,108 @@
+main
+{
+
+	local {
+		int	v,b,n,k,i;
+		float vf,s,d, f ;
+		char vc ;
+		bool v1, prueba ;
+		list_of int pe, pe2 ;
+		list_of float pf, pf2 ;
+		list_of    bool p1;
+		list_of char pd;
+		list_of   int ppf;
+	}
+
+
+	int funcionA (int a1, float a2, float d3) {
+		local {
+			int x1, x2 ;
+		}
+		return 2;
+	}
+
+	int factorial( int n ) {
+		int recursivo( int n ) {
+			if (n <= 1) {
+				return 1;
+			}
+			return n * recursivo(n-1);
+		}
+		return recursivo(n);
+	}
+
+	v = 0;
+	b = 3;
+	do {
+		v = v + b;
+	} until (v > 10);
+
+	cout "true o false?: ";
+	cin prueba;
+	cout prueba;
+
+	cout "A leer pe.";
+	cin pe;
+	cout "pe = ", pe;
+	cout "A leer p1";
+	cin p1;
+	cout p1;
+
+	pe = [2+funcionA(1, 1.0, 1.0)];
+	cout "pe = ", pe;
+	pe = [1, 43, 5, 0, 0];
+	ppf = pe;
+	cout "pe = ppf = ", pe;
+	cout "pe + 2 = ", pe + 2;
+	cout "pe * 2 = ", pe * 2;
+	cout "pe / 2 = ", pe / 2;
+	cout "pe - 2 = ", pe - 2;
+	cout "2 + pe = ", 2 + pe;
+	pd = ['z', 'A', 'B'];
+	cout "pd = ", pd;
+	pd = pd ++ 't' @ 3;
+	cout "Añadimos t en pos 3: ", pd;
+	pf = [2.5, 4.9, 3.0, 0.0];
+	cout "pf = ", pf;
+	pf = pf + 1.0;
+	cout "pf + 1.0 = ", pf;
+	p1 = [true, false, true,true] ;
+	cout "p1 = ", p1;
+	pe >> ;
+	cout "Adelantamos cursor pe: ", ? pe;
+	pe << ;
+	cout "Atrasamos cursor pe: ", ? pe;
+	pe >>;
+	pe >>;
+	cout "Avanzamos dos cursor pe: ", ? pe;
+	$pe ;
+	cout "Inicio cursor pe: ", ? pe;
+	cout "Si el tamaño de pe < 10 imprime 2ª pos, else 3ª pos: ";
+	if (#pe < 10)
+		cout "Tam pe < 10, pe[2] = ", pe @ 2;
+	else
+		cout "Tam pe >= 10, pe[3] = ", pe @ 3 ;
+
+	cout "Unimos pe con (pff borrando a partir de pos 3) = ", pe ** (ppf % 3) ;
+	cout "Insertamos true en p1 en pos 3 = ", p1 ++ true @ 3;
+	cout "Quitamos elemento de pos (3 - 2) / 2 en pf = ", pf -- ((3 - 2) / 2);
+	cout "Añadimos 3 a pe en pos 2 = ", pe ++ 3 @ 2;
+	cout "pe / 3 = ", pe / 3;
+
+	cout "Factorial de 5:", factorial(5);
+
+	cout "testeando bucle while (i<5)";
+	i = 0;
+	while ( i<5 ) {
+		cout "i: ", i;
+		i = i+1;
+	}
+
+	cout "testeando bucle do until (i<5)";
+	i = 0;
+	do {
+		cout "i: ", i;
+		i = i+1;
+	} until ( i<5 ) ;
+
+}

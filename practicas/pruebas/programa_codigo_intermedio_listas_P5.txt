@@ -1,0 +1,135 @@
+main 
+{
+
+{
+	local {
+		list_of int l1, l2, l3;     
+      		list_of bool es_primo;
+      		list_of int lista_de_primos;
+      		int i, n;
+	}
+    
+	list_of bool primo (int n) 
+	{
+		local {
+    			list_of bool es_primo;
+    			int i, j;
+    		}
+    	
+    		i = 2;
+
+      		es_primo = [false];
+     		es_primo = es_primo ** [false];
+    	
+    		while (i <= n) 
+    		{
+        		es_primo = es_primo ** [true];
+        		i = i + 1;
+    		}
+      
+    		i = 2;
+    	
+    		while (i * i < n) 
+    		{
+    			if (es_primo @ i)  
+    			{
+    				j = i * 2;
+          		
+          			while (j<= n) 
+          			{
+            				es_primo = es_primo -- j;
+            				es_primo = es_primo ++ false @ j;
+            				j = j + i;
+          			}
+    			}
+        		
+        		i = i + 1;
+    		}
+
+    		return es_primo;
+	}
+    
+	l1 = [2,10,4,8,6];
+    
+    
+	cout "";
+	cout "Lista 1: ";
+    	cout l1;
+    
+    	cout "";
+    	cout "Probando algunas operaciones de listas: ";
+    
+    	cout "";
+    
+    
+    	cout "--------------------------------------------------------------------";
+    	cout "OPERADORES UNARIOS";
+    	cout "";
+    	cout "Operador #: Nos dice la longitud de la lista, #l1 = ", #l1;
+    	cout "";
+    	cout "Operador ?: Elemento actual al que apunta el cursor de la lista, ?l1 = " , ?l1;
+    	cout "";
+    	cout "Utilizamos el operador >> para avanzar el cursor de la lista, l1>>";
+    	l1>>;
+    	cout "Ahora el elemento actual de la lista es, ?l1 =  ",?l1;
+    	$l1;
+    	
+    	cout "--------------------------------------------------------------------";
+    	cout "OPERADORES BINARIOS";
+    	cout "";
+   	cout "Operador @: Elemento que se encuentra en la posición x, l1 @ 3 =  ", l1 @ 3;
+    	cout "";
+    	cout "Operador --: Devuelve una copia de la lista con el elemento x borrado. Ejemplo: l2 = l1 -- 3 ";
+    	l2 = l1 -- 3;
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l2;
+    	cout "";
+    	cout "Operador %: Devuelve una copia de la lista sin los elementos a partir de la posición x. Ejemplo l3 = l1 % 2";
+    	l3 = l1 % 2;
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l3;
+    	cout "";
+    	cout "Operador **: Añade los elementos de una lista en otra y devuelve una copia. Ejemplo: l2 = l1 ** l3" ;
+    	l2 = l1 ** l3;
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l2;
+    	cout "";
+    	cout "Operador +: Suma x a cada elemento de la lista. Ejemplo: l1 + 3";
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l1 + 3;
+    	cout "";
+    	cout "Operador -: Resta x a cada elemento de la lista. Ejemplo: l1 - 3";
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l1 - 3;
+    	cout "";
+    	cout "Operador *: Multiplica por x a cada elemento de la lista. Ejemplo: l1 * 2";
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l1 * 2;
+    	cout "";
+    	cout "Operador /: Divide x a cada elemento de la lista. Ejemplo: l1 / 2";
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l1 / 2;
+    	
+    	cout "--------------------------------------------------------------------";
+    	cout "OPERADOR TERNARIO";
+    	cout "";
+    	cout "Operador l ++ x @ z: Devuelve una copia de l con x añadido en la posición z. Ejemplo l2 = l1 ++ -7 @ 2";
+    	cout "Tras la operación, obtenemos la siguiente lista: ", l1 ++ -7 @ 2;
+    	
+    	cout "--------------------------------------------------------------------";
+    
+    	cout "Ejemplo de programa complejo usando listas";
+    	cout "Ingrese un número: ";
+    	cin n;
+
+    	es_primo = primo(n);
+
+    	lista_de_primos = [0];
+
+    	i = 0;
+    	while (i < n) 
+    	{
+      		if (es_primo @ i) 
+      		{
+        		lista_de_primos = lista_de_primos ** [i];
+      		}
+      		i = i + 1;
+    	}
+    	
+    	lista_de_primos = lista_de_primos -- 0;
+    	cout "Lista de números primos menores que ", n , ": ",lista_de_primos;
+}
+}

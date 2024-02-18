@@ -1,0 +1,50 @@
+main
+{
+	local {
+		int a, b, c;
+		bool d;
+		float e;
+	}
+	
+	int funcionA (int a1, float a2, char a3) 
+ 	{
+ 		local {
+			int x1, x2 ;
+		}
+
+			char funcionB(char b1, bool b2)
+			{
+				local {
+					float xf, x2 ;
+				}
+
+					float funcionC (bool c1, int c2)
+					{
+						local {
+							float x1 ;
+						}
+
+						x1 = 1.3 ;
+						if (c2>10)
+							c2= c2-1 ;
+						else
+							x1= 3.1 ;
+						return x1;
+					}
+
+				xf= funcionC(true, 10);
+				x2 = xf * (funcionC(false, 1)-funcionC(true,23)) /10.0;
+
+				while (x2*funcionC(false,1)-xf<10.0)
+					x2= x2*xf;
+			}
+
+ 	}
+ 	
+ 	a = 2;
+ 	b = 3;
+ 	c = a + b;
+ 	
+ 	d = true;
+ 	d = false;
+}
